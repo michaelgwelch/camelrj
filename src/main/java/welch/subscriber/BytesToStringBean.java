@@ -2,7 +2,7 @@ package welch.subscriber;
 
 import java.io.UnsupportedEncodingException;
 
-public class BytesToString {
+public class BytesToStringBean {
 
 	public String process(byte[] bytes) {
 		String message = "hi";

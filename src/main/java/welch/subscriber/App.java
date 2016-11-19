@@ -30,9 +30,14 @@ public class App extends RouteBuilder
     }
 
     public void configure() {
+    	MapBean<RabbitEnvelope, ContentImage> envelopeBean = envelope -> envelope.message;
+
+    	
     	String queueName = "rabbitmq://localhost/completed_images?vhost=images&username=guest&password=guest&exchangeType=fanout&autoDelete=false";
     	from(queueName).routeId("RabbitMQ Reader")
-    	.bean(BytesToString.class)
+    	.bean(BytesToStringBean.class)
+    	.unmarshal().json(RabbitEnvelope.class, Object.class)
+    	.bean(envelopeBean)
     	.end();
     }
 }
