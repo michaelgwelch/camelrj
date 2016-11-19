@@ -5,10 +5,12 @@ public class ContentImage {
 	public String caption;
 	public String identifier;
 	public String system;
+	public String productNum;
 	
 	@Override
 	public String toString() {
-		return String.format("{'%s', '%s', '%s', '%s'}", imageUrl, caption, identifier, system);
+		return String.format("{'%s', '%s', '%s', '%s', '%s'}", productNum,
+				imageUrl, caption, identifier, system);
 	}
 }
 /*
